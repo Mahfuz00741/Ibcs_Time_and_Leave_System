@@ -1,0 +1,28 @@
+server:
+  port: 9092
+  servlet:
+    context-Path: /admin
+
+spring:
+  application:
+    name: ADMIN_SERVICE
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: Postus1814
+    driverClassName: org.postgresql.Driver
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    instance:
+      hostname: localhost

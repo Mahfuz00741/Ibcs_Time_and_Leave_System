@@ -1,0 +1,24 @@
+server:
+  port: 9091
+  servlet:
+    context-path: /tnl
+
+spring:
+  application:
+    name: TNL_SERVICE
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: Postus1814
+    driverClassName: org.postgresql.Driver
+
+eureka:
+  client:
+    serviceurl:
+      defaultZone: http://localhost:8761/eureka/

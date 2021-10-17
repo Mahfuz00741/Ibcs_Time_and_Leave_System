@@ -1,0 +1,32 @@
+server.port: 9000
+
+spring:
+  application:
+    name: API_GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: ADMIN_SERVICE
+          uri: lb://ADMIN_SERVICE
+          predicates:
+            - Path=/admin/**
+
+        - id: HR_SERVICE
+          uri: lb://HR_SERVICE
+          predicates:
+            - Path=/hr/**
+
+        - id: TNL_SERVICE
+          uri: lb://TNL_SERVICE
+          predicates:
+            - Path=/tnl/**
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      instance:
+        hostname: localhost
