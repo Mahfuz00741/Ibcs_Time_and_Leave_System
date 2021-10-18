@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: TNL_SERVICE
+    name: TNL-SERVICE
   jpa:
     database: POSTGRESQL
     show-sql: true

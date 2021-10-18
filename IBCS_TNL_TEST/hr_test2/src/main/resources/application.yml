@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: HR_SERVICE
+    name: HR-SERVICE
   jpa:
     database: POSTGRESQL
     show-sql: true

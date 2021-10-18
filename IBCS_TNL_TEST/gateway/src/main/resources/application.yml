@@ -2,22 +2,22 @@ server.port: 9000
 
 spring:
   application:
-    name: API_GATEWAY
+    name: API-GATEWAY
   cloud:
     gateway:
       routes:
         - id: ADMIN-SERVICE
-          uri: lb://ADMIN_SERVICE
+          uri: lb://ADMIN-SERVICE
           predicates:
             - Path=/admin/**
 
-        - id: HR_SERVICE
-          uri: lb://HR_SERVICE
+        - id: HR-SERVICE
+          uri: lb://HR-SERVICE
           predicates:
             - Path=/hr/**
 
-        - id: TNL_SERVICE
-          uri: lb://TNL_SERVICE
+        - id: TNL-SERVICE
+          uri: lb://TNL-SERVICE
           predicates:
             - Path=/tnl/**
 

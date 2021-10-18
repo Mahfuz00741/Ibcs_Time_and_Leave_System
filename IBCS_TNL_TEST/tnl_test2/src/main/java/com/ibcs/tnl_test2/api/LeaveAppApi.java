@@ -1,6 +1,7 @@
 package com.ibcs.tnl_test2.api;
 
 import com.ibcs.tnl_test2.dto.LeaveAppDto;
+import com.ibcs.tnl_test2.dto.ResponseFeignClientDto;
 import com.ibcs.tnl_test2.service.LeaveAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -37,5 +38,12 @@ public class LeaveAppApi {
     @DeleteMapping("/{id}")
     public void deleteLeaveApp(@PathVariable Long id){
         leaveAppService.deleteById(id);
+    }
+
+    // Feign client api...
+
+    @GetMapping("empDetails/{id}")
+    public ResponseFeignClientDto empView(@PathVariable Long id){
+        return leaveAppService.findEmp(id);
     }
 }
