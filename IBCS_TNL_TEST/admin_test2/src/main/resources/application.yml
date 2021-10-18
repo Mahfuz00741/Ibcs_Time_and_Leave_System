@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: ADMIN_SERVICE
+    name: ADMIN-SERVICE
   jpa:
     database: POSTGRESQL
     show-sql: true

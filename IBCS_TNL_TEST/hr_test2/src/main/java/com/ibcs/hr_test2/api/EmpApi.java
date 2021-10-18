@@ -1,6 +1,8 @@
 package com.ibcs.hr_test2.api;
 
 import com.ibcs.hr_test2.dto.EmpDto;
+import com.ibcs.hr_test2.dto.ResponseFeignClientDto;
+import com.ibcs.hr_test2.dto.UserDto;
 import com.ibcs.hr_test2.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +15,7 @@ public class EmpApi {
 
     @Autowired
     private EmpService empService;
+
 
     @GetMapping("/")
     public Page<EmpDto> all() {
@@ -38,4 +41,11 @@ public class EmpApi {
     public void deleteEmp(@PathVariable Long id){
         empService.deleteById(id);
     }
+
+    // AdminRestHr feign client Api here..
+    @GetMapping("userDetails/{id}")
+    public ResponseFeignClientDto userView(@PathVariable Long id){
+        return empService.findUser(id);
+    }
+
 }
