@@ -59,7 +59,7 @@ public class LeaveApp extends BaseEntity {
     private String remark;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 10)
+    @Column(length = 50)
     private Status status;
 
 }

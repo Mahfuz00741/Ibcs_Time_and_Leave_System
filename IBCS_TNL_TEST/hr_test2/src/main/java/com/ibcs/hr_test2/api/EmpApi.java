@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/empApi")
 public class EmpApi {
@@ -24,6 +25,7 @@ public class EmpApi {
 
     @GetMapping("/{id}")
     public EmpDto findOne(@PathVariable Long id) {
+
         return empService.findById(id);
     }
 

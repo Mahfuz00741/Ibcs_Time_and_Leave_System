@@ -32,27 +32,30 @@ public class LeaveAppService {
 
     private LeaveAppDto conv(LeaveApp leaveApp) {
         LeaveAppDto leaveAppDto = new LeaveAppDto();
-        BeanUtils.copyProperties(leaveApp, leaveAppDto, "leaveTypeId", "entry");
+        BeanUtils.copyProperties(leaveApp, leaveAppDto, "leaveTypeId", "entry", "status");
         leaveAppDto.setLeaveTypeId(leaveApp.getLeaveTypeId().getId());
         leaveAppDto.setEntry(leaveApp.getEntry().name());
-
+        leaveAppDto.setStatus(leaveApp.getStatus().name());
         return leaveAppDto;
     }
 
     public LeaveAppDto save(LeaveAppDto leaveAppDto) {
         LeaveApp leaveApp = new LeaveApp();
-        BeanUtils.copyProperties(leaveAppDto, leaveApp, "leaveTypeId", "entry");
+        BeanUtils.copyProperties(leaveAppDto, leaveApp, "leaveTypeId", "entry", "status");
         leaveApp.setLeaveTypeId(leaveTypeRepo.getById(leaveAppDto.getLeaveTypeId()));
         leaveApp.setEntry(LeaveApp.EntryType.valueOf(leaveAppDto.getEntry()));
+        leaveApp.setStatus(LeaveApp.Status.valueOf(leaveAppDto.getStatus()));
+
 
         return conv(leaveAppRepo.save(leaveApp));
     }
 
     public LeaveAppDto update(LeaveAppDto leaveAppDto, Long id) {
         LeaveApp leaveApp = leaveAppRepo.getById(id);
-        BeanUtils.copyProperties(leaveAppDto, leaveApp, "id", "leaveTypeId", "entry");
+        BeanUtils.copyProperties(leaveAppDto, leaveApp, "id", "leaveTypeId", "entry", "status");
         leaveApp.setLeaveTypeId(leaveTypeRepo.getById(leaveAppDto.getLeaveTypeId()));
         leaveApp.setEntry(LeaveApp.EntryType.valueOf(leaveAppDto.getEntry()));
+        leaveApp.setStatus(LeaveApp.Status.valueOf(leaveAppDto.getStatus()));
 
         return conv(leaveAppRepo.save(leaveApp));
     }

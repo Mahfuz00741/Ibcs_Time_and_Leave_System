@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/desgApi")
 public class DesgApi {
@@ -22,6 +23,7 @@ public class DesgApi {
 
     @GetMapping("/{id}")
     public DesgDto findOne(@PathVariable Long id){
+
         return desgService.findOne(id);
     }
 
